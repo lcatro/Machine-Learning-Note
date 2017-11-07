@@ -47,7 +47,7 @@
 
 ### Python 库
 
-[scikit-learn 机器学习库](https://github.com/scikit-learn/scikit-learn) ,[scikit-learn 机器学习库中文文档](http://sklearn.apachecn.org/cn/0.19.0/index.html)<br/>
+[scikit-learn 机器学习库](https://github.com/scikit-learn/scikit-learn) ,[scikit-learn 机器学习库中文文档](http://sklearn.apachecn.org/cn/0.19.0/index.html) ,如果无法使用Github 安装sk-learn ,请到Python 官方下载msi 安装文件[scikit-learn 下载传送门](https://pypi.python.org/pypi/scikit-learn)<br/>
 
 [Keras 深度学习库](https://github.com/fchollet/keras)<br/>
 
