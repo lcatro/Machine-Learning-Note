@@ -22,9 +22,9 @@ def image_convert_to_array(image_data,image_width,image_height) :
         pixel_list_data = []
         
         for height_index in range(image_height) :
-            pixel_list_data.append(~image_data[width_index,height_index])
+            pixel_list_data.append(abs(image_data[width_index,height_index] - 128))
             
-        pixel_data += pixel_list_data
+        pixel_data.append(pixel_list_data)
     
     return array(pixel_data)
 
@@ -47,7 +47,10 @@ def load_sample() :
         data_list.append(image_data)
         classfy_list.append(number_class)
         
-    return data_list , classfy_list
+    #data_list = array(data_list)
+    #data_list = data_list.reshape((len(data_list), -1))
+        
+    return array(data_list) , array(classfy_list)
 
 def train_model(data_list,classfy_list) :
     svc_model = SVC(gamma = 0.001)
@@ -70,21 +73,26 @@ def load_captcha(path = 'get_captcha.png',captcha_count = 4) :
         
         image_data.append(image_convert_to_array(image_char.load(),image_char.size[0],image_char.size[1]))
     
-    return image_data
+    return array(image_data)
 
 if __name__ == '__main__' :
     start_time = time()
     data_list,classfy_list = load_sample()
     
-    print 'Load Data Success'
+    print data_list,classfy_list , len(data_list) ,len(data_list[0])
+    
+    print 'Load Data Success' , time() - start_time
     
     svc_model = train_model(data_list,classfy_list)
     
-    print 'Train Model Success'
+    print 'Train Model Success' , time() - start_time
     
     image_data = load_captcha()
     
-    print 'Load Captche Success'
-    print try_classfy(svc_model,image_data)
-    print 'Using Time :',time() - start_time
+    print 'Load Captche Success' , time() - start_time
+    
+    for image_index in image_data :
+        print try_classfy(svc_model,image_index) ,
+        
+    print 'Using Time :' , time() - start_time
         

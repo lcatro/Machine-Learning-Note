@@ -7,6 +7,7 @@ from PIL import ImageDraw
 
 from captcha_process import *
 
+
 system_font_dir = 'C:\\Windows\\Fonts\\'
 
 
@@ -42,17 +43,19 @@ def make_picture(char,location,font_name) :
     image = image.convert('L')
 
     preprocess_pixel(image)
-
-    image.save('captcha_pic\\' + font_name + '_' + char + '.bmp')
+    
+    if ord(char) in range(97,97 + 26) :  #  is little character ..
+        image.save('captcha_pic\\' + font_name + '__' + char + '.bmp')  #  because Windows no support mix big/little character file name ..
+    else :
+        image.save('captcha_pic\\' + font_name + '_' + char + '.bmp')
     
     
 if __name__ == '__main__' :
-    print make_char_set()
+    font_list = ['ahronbd','angsaub.ttf','angsauz.ttf','aparaj.ttf','aparajbi.ttf','arial.ttf','arialbd.ttf','browaz.ttf','Candaraz.ttf','lvnm.ttf']#os.listdir(system_font_dir)
     
-    '''
-    font_list = os.listdir(system_font_dir)
-
     for font_index in font_list :
+        #if not font_index.endswith('.ttf') :
+        #    continue
+            
         for char_index in make_char_set() :
             make_picture(char_index,(5,0),font_index)
-    '''
