@@ -2,8 +2,9 @@
 import os
 
 from PIL import Image
-from PIL import ImageFont
+from PIL import ImageChops
 from PIL import ImageDraw
+from PIL import ImageFont
 
 from captcha_process import *
 
@@ -25,37 +26,34 @@ def make_char_set() :
     
     return result
     
-def make_picture(char,location,font_name) :
-    image = Image.new('RGB',(32,32),'white')
+def make_picture(char,font_name,rotate = 0) :
+    image = Image.new('RGB',(16,16),'black')
     
     try :
-        font = ImageFont.truetype(system_font_dir + font_name,32)
+        font = ImageFont.truetype(system_font_dir + font_name,18)
     except :
-        try :
-            font = ImageFont.truetype(system_font_dir + font_name,24)
-        except :
-            return
+        return
     
     draw = ImageDraw.Draw(image)
-
-    draw.text(location,char,font = font,fill = 'black')
-
+    
+    draw.text((0,-1),char,font = font,fill = 'white')
+    
+    image = image.rotate(rotate)
     image = image.convert('L')
-
+    image = ImageChops.invert(image)
+    
     preprocess_pixel(image)
     
     if ord(char) in range(97,97 + 26) :  #  is little character ..
-        image.save('captcha_pic\\' + font_name + '__' + char + '.bmp')  #  because Windows no support mix big/little character file name ..
+        image.save('captcha_pic\\' + font_name + '_' + str(rotate) + '__' + char + '.bmp')  #  because Windows no support mix big/little character file name ..
     else :
-        image.save('captcha_pic\\' + font_name + '_' + char + '.bmp')
+        image.save('captcha_pic\\' + font_name + '_' + str(rotate)  + '_' + char + '.bmp')
     
     
 if __name__ == '__main__' :
-    font_list = ['ahronbd','angsaub.ttf','angsauz.ttf','aparaj.ttf','aparajbi.ttf','arial.ttf','arialbd.ttf','browaz.ttf','Candaraz.ttf','lvnm.ttf']#os.listdir(system_font_dir)
+    font_list = ['arial.ttf','arialbd.ttf']#,'Candaraz.ttf']
     
     for font_index in font_list :
-        #if not font_index.endswith('.ttf') :
-        #    continue
-            
         for char_index in make_char_set() :
-            make_picture(char_index,(5,0),font_index)
+            for rotate_index in range(-25,25,2) :
+                make_picture(char_index,font_index,rotate_index)
