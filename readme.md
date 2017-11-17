@@ -80,6 +80,23 @@
 
 [SVM和logistic回归分别在什么情况下使用](https://www.zhihu.com/question/21704547)<br/>
 
+#### 深度学习
+
+[零基础入门深度学习(总计六章)](https://zhuanlan.zhihu.com/p/25628246)<br/>
+
+#### CNN
+
+[Deep Learning(深度学习)学习笔记整理系列](http://www.cnblogs.com/zhizhan/p/4077947.html)<br/>
+
+[CNN(卷积神经网络),RNN(循环神经网络),DNN(深度神经网络)的内部网络结构有什么区别](https://www.zhihu.com/question/34681168)<br/>
+
+[一文读懂卷积神经网络CNN](https://www.cnblogs.com/nsnow/p/4562308.html)<br/>
+
+[深度学习简介(一)——卷积神经网络](https://www.cnblogs.com/alexcai/p/5506806.html)<br/>
+
+[卷积神经网络CNN基本概念笔记](http://www.jianshu.com/p/606a33ba04ff)<br/>
+
+[使用Keras+卷积神经网络玩小鸟](http://www.jianshu.com/p/3ba69493f020)<br/>
 
 ### Python 库
 
