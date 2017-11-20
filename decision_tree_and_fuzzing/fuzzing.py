@@ -1,3 +1,4 @@
+from __future__ import print_function
 
 import inspect
 import json
@@ -137,7 +138,7 @@ class fuzzing_decision_tree :
             node.add_node_data(node_data)
             
     def print_node(self) :
-        print json.dumps(self.tree,indent = 2)
+        print(json.dumps(self.tree,indent = 2))
         
     def make_payload(self,node = None) :
         payload = b''
@@ -207,7 +208,7 @@ def fuzzing_input(fuzzing_function,fuzzing_data_length = 32) :
             node_data = buffer[node_data_index]
 
             if not decision_tree.is_exist_node(node_name) :
-                print 'Found New Path :',node_name
+                print('Found New Path :',node_name)
 
                 if 0 == index :
                     decision_tree.add_node(node_name)
@@ -235,7 +236,7 @@ def fuzzing_input(fuzzing_function,fuzzing_data_length = 32) :
     decision_tree.print_node()
     
     #for index in range(10) :
-    print 'Payload :' , decision_tree.make_payload()
+    print('Payload :' , decision_tree.make_payload())
     
     
 def test_function2(buffer) :

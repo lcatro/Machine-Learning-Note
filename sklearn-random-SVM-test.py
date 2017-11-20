@@ -1,3 +1,4 @@
+from __future__ import print_function
 
 from random import *
 
@@ -25,7 +26,7 @@ classfy.fit(x_train,y_train)
 
 score = classfy.score(x_test, y_test)
 
-print 'Classfy Score:' , score
+print('Classfy Score:' , score)
 
 test_data_list = []
 test_data_classfy = []
@@ -34,7 +35,7 @@ for index in range(10) :
     test_data = [[randint(0,20),randint(5,10)]]
     test_data_predict = classfy.predict(test_data)
     
-    print test_data , test_data_predict
+    print(test_data , test_data_predict)
     
     test_data_list += test_data
     test_data_classfy.append(test_data_predict)

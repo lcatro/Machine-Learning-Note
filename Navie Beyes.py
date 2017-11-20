@@ -6,6 +6,7 @@
     y  = 1,1,1,1,-1,-1,-1,-1,1,-1,1,1,-1,-1,-1,1,1
 
 '''
+from __future__ import print_function
 
 
 x1 = [1,1,1,1,2 ,2 ,2 ,1 ,2,2 ,2,3,3 ,1 ,1 ,2 ,3,3]#[1,1,1,1,1,2,2,2,2,2,3,3,3,3,3]
@@ -61,7 +62,7 @@ def try_classify(data_x1,data_x2,model) :
     p_y1  = model[0] * model[2][data_x1][1]  * model[3][data_x2][1]
     p_y_1 = model[1] * model[2][data_x1][-1] * model[3][data_x2][-1]
     
-    print p_y1 , p_y_1
+    print(p_y1 , p_y_1)
     
     if p_y1 > p_y_1 :
         return 1
@@ -74,14 +75,14 @@ def try_classify(data_x1,data_x2,model) :
 if __name__ == '__main__' :
     model = train_model()
     
-    print try_classify(1,7,model) , 1,7
-    print try_classify(1,8,model) , 1,8
-    print try_classify(1,9,model) , 1,9
-    print try_classify(2,7,model) , 2,7
-    print try_classify(2,8,model) , 2,8
-    print try_classify(2,9,model) , 2,9
-    print try_classify(3,7,model) , 3,7
-    print try_classify(3,8,model) , 3,8
-    print try_classify(3,9,model) , 3,9
+    print(try_classify(1,7,model) , 1,7)
+    print(try_classify(1,8,model) , 1,8)
+    print(try_classify(1,9,model) , 1,9)
+    print(try_classify(2,7,model) , 2,7)
+    print(try_classify(2,8,model) , 2,8)
+    print(try_classify(2,9,model) , 2,9)
+    print(try_classify(3,7,model) , 3,7)
+    print(try_classify(3,8,model) , 3,8)
+    print(try_classify(3,9,model) , 3,9)
     
 #    print try_classify(2,4,model) , 2,4

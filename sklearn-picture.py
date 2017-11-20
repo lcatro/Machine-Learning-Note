@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Standard scientific Python imports
 import matplotlib.pyplot as plt
 

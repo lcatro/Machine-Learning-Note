@@ -1,3 +1,4 @@
+from __future__ import print_function
 
 from os import *
 from time import *
@@ -80,19 +81,19 @@ if __name__ == '__main__' :
     
     data_list,classfy_list = load_sample()
     
-    print 'Load Data Success' , time() - start_time
+    print('Load Data Success' , time() - start_time)
     
     svc_model = train_model(data_list,classfy_list)
     
-    print 'Train Model Success' , time() - start_time
+    print('Train Model Success' , time() - start_time)
     
     image_data = load_captcha()
     
-    print 'Load Captche Success' , time() - start_time
+    print('Load Captche Success' , time() - start_time)
     
     #for image_index in image_data :
     #    print try_classfy(svc_model,image_index) ,
-    print try_classfy(svc_model,image_data)
+    print(try_classfy(svc_model,image_data))
         
-    print 'Using Time :' , time() - start_time
+    print('Using Time :' , time() - start_time)
         
