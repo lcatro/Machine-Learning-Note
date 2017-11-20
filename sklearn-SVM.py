@@ -1,3 +1,4 @@
+from __future__ import print_function
 
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
@@ -17,12 +18,12 @@ svc_model.fit(X_train,y_train)
 
 score = svc_model.score(X_test, y_test)
 
-print score
+print(score)
 
 predict = svc_model.predict(X_test)
 
 for x_index ,y_index ,y_predict in zip(X_test,y_test,predict) :
     if not y_index == y_predict :
-        print 'ERR ' ,x_index,y_index,y_predict
+        print('ERR ' ,x_index,y_index,y_predict)
 
         
