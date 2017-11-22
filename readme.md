@@ -136,7 +136,10 @@
 
 [使用Keras+卷积神经网络玩小鸟](http://www.jianshu.com/p/3ba69493f020)<br/>
 
+[什么是 Q-Learning](https://zhuanlan.zhihu.com/p/24808797)<br/>
+
 [如何用简单例子讲解Q-learning的具体过程](https://www.zhihu.com/question/26408259)<br/>
+
 
 ### Python 库
 
