@@ -30,6 +30,12 @@
 
 ![](pic/kNN.jpg)<br/>
 
+  kNN 算法原理:w1 w2 w3 是不同分类的数据,当新的数据出现(Xu),需要对数据Xu 进行分类,方法如下:
+  
+  1.计算Xu 到w1 w2 w3 的平均距离(使用勾股定理求出到各个分类的数据点的距离)
+  2.把Xu 到w1 w2 w3 的平均距离做对比,找到这三个分类中最短的距离,得到的结果就是kNN 分类结果
+
+
 #### 决策树
 
 ```
@@ -90,13 +96,47 @@
 
 [CNN(卷积神经网络),RNN(循环神经网络),DNN(深度神经网络)的内部网络结构有什么区别](https://www.zhihu.com/question/34681168)<br/>
 
-[一文读懂卷积神经网络CNN](https://www.cnblogs.com/nsnow/p/4562308.html)<br/>
-
 [深度学习简介(一)——卷积神经网络](https://www.cnblogs.com/alexcai/p/5506806.html)<br/>
 
 [卷积神经网络CNN基本概念笔记](http://www.jianshu.com/p/606a33ba04ff)<br/>
 
+[画出卷积神经网络结构图](http://www.jianshu.com/p/56a05b5e4f20)<br/>
+
+[小白学CNN以及Keras的速成](https://www.leiphone.com/news/201708/fhJ72ZPlmYr12CwV.html)<br/>
+
+对"小白学CNN以及Keras的速成"注解
+
+文章最后有一段关于构建CNN 网络的代码:
+
+```python
+
+    from keras.layers import Conv2D,MaxPool2D,Dense,Flatten
+    from keras.models import Sequential 
+    lenet=Sequential()
+    lenet.add(Conv2D(6,kernel_size=3,strides=1,padding='same',input_shape=(28, 28, 1)))
+    lenet.add(MaxPool2D(pool_size=2,strides=2))
+    lenet.add(Conv2D(16,kernel_size=5,strides=1,padding='valid'))
+    lenet.add(MaxPool2D(pool_size=2,strides=2))
+    lenet.add(Flatten())
+    lenet.add(Dense(120))
+    lenet.add(Dense(84))
+    lenet.add(Dense(10,activation='softmax'))
+    
+```
+
+这个是LeNet CNN 结构,在应用神经网络实现代码时,可以不需要关注神经网络的具体细节,知道一些CNN 结构是怎么样搭建的就可以了.这段代码可以这样来理解:
+
+![](pic/LeNet.png)
+
+下面这个例子用的是CS231n 结构,CS231n 长这样~
+
+![]([pic/CS231n.jpeg])
+
+最后的代码实现只使用了一个(两次卷积+池化),没有像上面的图片里展示的那样使用三个(两次卷积+池化)<br/>
+
 [使用Keras+卷积神经网络玩小鸟](http://www.jianshu.com/p/3ba69493f020)<br/>
+
+
 
 ### Python 库
 
